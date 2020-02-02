@@ -42,14 +42,14 @@ exports.postContact = (req, res) => {
   }
 
   let transporter = nodemailer.createTransport({
-    service: 'SendGrid',
+    service: "Mailgun",
     auth: {
-      user: process.env.SENDGRID_USER,
-      pass: process.env.SENDGRID_PASSWORD
+      user: process.env.MAILGUN_USER,
+      pass: process.env.MAILGUN_PASSWORD
     }
   });
   const mailOptions = {
-    to: 'your@email.com',
+    to: 'team@hostnotion.co',
     from: `${fromName} <${fromEmail}>`,
     subject: 'Contact Form | Hackathon Starter',
     text: req.body.message
@@ -64,10 +64,10 @@ exports.postContact = (req, res) => {
       if (err.message === 'self signed certificate in certificate chain') {
         console.log('WARNING: Self signed certificate in certificate chain. Retrying with the self signed certificate. Use a valid certificate if in production.');
         transporter = nodemailer.createTransport({
-          service: 'SendGrid',
+          service: "Mailgun",
           auth: {
-            user: process.env.SENDGRID_USER,
-            pass: process.env.SENDGRID_PASSWORD
+            user: process.env.MAILGUN_USER,
+            pass: process.env.MAILGUN_PASSWORD
           },
           tls: {
             rejectUnauthorized: false
