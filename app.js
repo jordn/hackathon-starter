@@ -156,8 +156,6 @@ app.get('/api/scraping', apiController.getScraping);
 app.get('/api/twilio', apiController.getTwilio);
 app.post('/api/twilio', apiController.postTwilio);
 app.get('/api/github', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getGithub);
-app.get('/api/twitter', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getTwitter);
-app.post('/api/twitter', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.postTwitter);
 app.get('/api/upload', lusca({ csrf: true }), apiController.getFileUpload);
 app.post('/api/upload', upload.single('myFile'), lusca({ csrf: true }), apiController.postFileUpload);
 

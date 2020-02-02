@@ -51,7 +51,7 @@ exports.postContact = (req, res) => {
   const mailOptions = {
     to: 'team@hostnotion.co',
     from: `${fromName} <${fromEmail}>`,
-    subject: 'Contact Form | Hackathon Starter',
+    subject: 'Contact Form | Host Notion',
     text: req.body.message
   };
 
